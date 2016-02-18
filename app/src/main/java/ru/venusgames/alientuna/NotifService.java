@@ -27,19 +27,11 @@ public class NotifService extends Service {
 
                     Log.d(getClass().getName(), "End waiting");
 
-                    Intent intent1 = new Intent(context, MainActivity.class);
-
-                    TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
-                    taskStackBuilder.addParentStack(MainActivity.class);
-                    taskStackBuilder.addNextIntent(intent1);
-
-                    PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
                     Builder builder = new Builder(context).setSmallIcon(R.mipmap.ic_launcher).
                             setContentTitle("Tuna notification").
                             setContentText("Test notification").
                             setAutoCancel(true).
-                            setContentIntent(pendingIntent);
+                            setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
 
                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
                     notificationManager.notify(1, builder.build());
