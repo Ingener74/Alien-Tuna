@@ -38,6 +38,7 @@ public class NotifService extends Service {
                     Builder builder = new Builder(context).setSmallIcon(R.mipmap.ic_launcher).
                             setContentTitle("Tuna notification").
                             setContentText("Test notification").
+                            setAutoCancel(true).
                             setContentIntent(pendingIntent);
 
                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
