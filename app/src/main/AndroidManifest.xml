@@ -22,7 +22,7 @@
         <service
             android:name=".NotifService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="false" />
     </application>
 
 </manifest>
